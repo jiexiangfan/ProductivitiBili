@@ -1,0 +1,22 @@
+/* css file for bilibili.com */
+
+/* video recommendation under home page header */
+.bili-layout {
+  display: none;
+}
+
+/*  */
+.bili-footer {
+  display: none;
+}
+
+/* recommendations list on the right when playing video */
+#reco_list {
+  display: none;
+}
+
+/* ads and live recommendation under video recommendation list */
+#right-bottom-banner,
+#live_recommand_report {
+  display: none;
+}
