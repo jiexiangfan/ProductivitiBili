@@ -20,3 +20,8 @@
 #live_recommand_report {
   display: none;
 }
+
+/* on video recommendation shown when a video is finished playing */
+.bilibili-player-ending-panel-box-videos {
+  display: none !important;
+}
