@@ -1,0 +1,22 @@
+/* css file for instagram.com */
+
+/* Home Page - updated 30.07.2022 */
+
+/* Stories */
+/* _aac4 _aac5 _aac6 _aac7 all four are stories section*/
+._aac4 {
+  display: none !important;
+}
+
+/* Feed */
+/* _ab8w  _ab94 _ab99 _ab9f _ab9m _ab9p  _abc0 _abcm all are feed section */
+/* _ab8w  _ab94 _ab99 _ab9f _ab9k _ab9p _abcm  all are css class for logo as well*/
+/* Using method of exclusion, _abc0 is the one css for feed section */
+._abc0 {
+  display: none !important;
+}
+
+/* suggestion pages to follow beside feed */
+._aak3 {
+  display: none !important;
+}

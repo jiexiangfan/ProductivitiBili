@@ -28,6 +28,12 @@
       "js": ["bilibili.js"],
       "css": ["bilibili.css"],
       "run_at": "document_start"
+    },
+    {
+      "matches": ["*://*.instagram.com/*"],
+      "js": ["instagram.js"],
+      "css": ["instagram.css"],
+      "run_at": "document_start"
     }
   ]
 }
