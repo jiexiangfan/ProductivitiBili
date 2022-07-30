@@ -1,14 +1,40 @@
 /* css file for bilibili.com */
 
+/* Home Page - Old */
+
 /* video recommendation under home page header */
 .bili-layout {
   display: none;
 }
 
-/*  */
+/*  footer of the main side which show all the legal information and stuff*/
 .bili-footer {
   display: none;
 }
+.international-footer {
+  display: none;
+}
+
+/* Home Page - Updated on 30 July 2022 */
+
+/* Hide videos */
+.bili-feed4-layout {
+  display: none !important;
+}
+
+/* Buggy second header after video sections removed */
+.header-channel-fixed {
+  display: none !important;
+}
+
+/* Popular content 熱門視頻 */
+
+/* hiding the whole content including tabs on top */
+.popular-container {
+  display: none !important;
+}
+
+/* Video Playing Page */
 
 /* recommendations list on the right when playing video */
 #reco_list {
