@@ -48,6 +48,17 @@
 }
 
 /* on video recommendation shown when a video is finished playing */
-.bilibili-player-ending-panel-box-videos {
+.bilibili-player-ending-panel-box-videos,
+.bpx-player-ending-related {
   display: none !important;
+}
+
+/* videos with same theme */
+.video-sections-content-list {
+  display: none;
+}
+
+/* recommend video */
+.rcmd-list {
+  display: none;
 }
