@@ -34,6 +34,12 @@
       "js": ["instagram.js"],
       "css": ["instagram.css"],
       "run_at": "document_start"
+    },
+    {
+      "matches": ["*://*.youtube.com/*"],
+      "js": ["youtube.js"],
+      "css": ["youtube.css"],
+      "run_at": "document_start"
     }
   ]
 }
