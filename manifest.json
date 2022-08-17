@@ -40,6 +40,18 @@
       "js": ["youtube.js"],
       "css": ["youtube.css"],
       "run_at": "document_start"
+    },
+    {
+      "matches": ["*://*.facebook.com/*"],
+      "js": ["facebook.js"],
+      "css": ["facebook.css"],
+      "run_at": "document_start"
+    },
+    {
+      "matches": ["*://*.facebook.com/"],
+      "js": ["facebookHome.js"],
+      "css": ["facebookHome.css"],
+      "run_at": "document_start"
     }
   ]
 }
