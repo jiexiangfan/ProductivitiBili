@@ -2,25 +2,25 @@
 
 /* Home Page - updated 17.08.2022 */
 
-[role="feed"] {
+/* [role="feed"] {
   display: none !important;
-}
+} */
 
-[aria-label="Stories"] {
+/* [aria-label="Stories"] {
   display: none !important;
-}
+} */
 
 /* chatbox */
-[data-testid="mwchat-tabs"] {
+/* [data-testid="mwchat-tabs"] {
   display: none !important;
-}
+} */
 
 /* chat sidebar */
-.fbChatSidebar,
+/* .fbChatSidebar,
 #BuddylistPagelet,
 [data-pagelet="ChatTab"],
 [aria-label="New Message"],
 [aria-label="New message"],
 .mqussk9c {
   display: none !important;
-}
+} */
