@@ -28,30 +28,6 @@
       "js": ["bilibili.js"],
       "css": ["bilibili.css"],
       "run_at": "document_start"
-    },
-    {
-      "matches": ["*://*.instagram.com/*"],
-      "js": ["instagram.js"],
-      "css": ["instagram.css"],
-      "run_at": "document_start"
-    },
-    {
-      "matches": ["*://*.youtube.com/*"],
-      "js": ["youtube.js"],
-      "css": ["youtube.css"],
-      "run_at": "document_start"
-    },
-    {
-      "matches": ["*://*.facebook.com/*"],
-      "js": ["facebook.js"],
-      "css": ["facebook.css"],
-      "run_at": "document_start"
-    },
-    {
-      "matches": ["*://*.facebook.com/"],
-      "js": ["facebookHome.js"],
-      "css": ["facebookHome.css"],
-      "run_at": "document_start"
     }
   ]
 }
