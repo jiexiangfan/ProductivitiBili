@@ -1,3 +1,5 @@
+// bilibili.js
+
 // Logic file for BiliBili website
 chrome.storage.sync.get(["settings"], function (result) {
   var settings = result.settings || {};
@@ -17,11 +19,6 @@ function applySettings(settings) {
     var recoList = document.querySelector("#reco_list");
     if (recoList) {
       recoList.style.display = "none";
-    }
-  } else if (settings.recommended === "blur") {
-    var recoList = document.querySelector("#reco_list");
-    if (recoList) {
-      recoList.style.filter = "blur(5px)";
     }
   } else {
     var recoList = document.querySelector("#reco_list");

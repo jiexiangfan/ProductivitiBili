@@ -1,3 +1,5 @@
+// popup.js
+
 document.addEventListener("DOMContentLoaded", function () {
   var recommendedRadios = document.querySelectorAll(
     'input[name="recommended"]'
