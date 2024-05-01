@@ -2,11 +2,53 @@
 <html>
 
 <head>
-    <link rel="stylesheet" href="button.css">
+    <title>ProductivityPro</title>
+    <style>
+        .section {
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
 
 <body>
-    <button id="changeColor"></button>
+    <h1>ProductivityPro</h1>
+    <div class="section">
+        <h2>Recommended</h2>
+        <label>
+            <input type="radio" name="recommended" value="show" checked> Show
+        </label>
+        <label>
+            <input type="radio" name="recommended" value="hide"> Hide
+        </label>
+        <label>
+            <input type="radio" name="recommended" value="blur"> Blur
+        </label>
+    </div>
+    <div class="section">
+        <h2>Comments</h2>
+        <label>
+            <input type="radio" name="comments" value="show" checked> Show
+        </label>
+        <label>
+            <input type="radio" name="comments" value="hide"> Hide
+        </label>
+        <label>
+            <input type="radio" name="comments" value="blur"> Blur
+        </label>
+    </div>
+    <div class="section">
+        <h2>Danmaku</h2>
+        <label>
+            <input type="radio" name="danmaku" value="show" checked> Show
+        </label>
+        <label>
+            <input type="radio" name="danmaku" value="hide"> Hide
+        </label>
+        <label>
+            <input type="radio" name="danmaku" value="blur"> Blur
+        </label>
+    </div>
+
     <script src="popup.js"></script>
 </body>
 

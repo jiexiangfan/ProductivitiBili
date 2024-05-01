@@ -1,8 +1,7 @@
 // Background script aka service worker for the extension
 
-let color = "#3aa757";
-
 chrome.runtime.onInstalled.addListener(() => {
-  chrome.storage.sync.set({ color });
-  console.log("Default background color set to %cgreen", `color: ${color}`);
+  console.log(
+    "Hi there! I'm the background script. Feel free to contribute to this open source project if you found this message."
+  );
 });

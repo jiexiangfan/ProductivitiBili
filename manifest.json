@@ -1,6 +1,6 @@
 {
-  "name": "Feed Blocker",
-  "description": "Feed and recommendations blocker for social media and video platforms.",
+  "name": "ProductivitiBili - Hide BiliBili feeds 哔哩哔哩自律小助手",
+  "description": "Productivity tools extension that block social media feed in Google Chrome.",
   "version": "0.1",
   "manifest_version": 3,
   "background": {
@@ -25,9 +25,7 @@
   "content_scripts": [
     {
       "matches": ["*://*.bilibili.com/*"],
-      "js": ["bilibili.js"],
-      "css": ["bilibili.css"],
-      "run_at": "document_start"
+      "js": ["bilibili.js"]
     }
   ]
 }
