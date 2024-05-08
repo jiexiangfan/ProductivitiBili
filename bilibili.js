@@ -49,8 +49,8 @@ const sectionStyles = {
 };
 
 // Apply existing settings to the current tab
-chrome.storage.sync.get(["bili_userSettings"], function (result) {
-  const settings = result.bili_userSettings || {};
+chrome.storage.sync.get(["bilibiliSettings"], function (result) {
+  const settings = result.bilibiliSettings || {};
   applySettings(settings);
 });
 
