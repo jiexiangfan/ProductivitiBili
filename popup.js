@@ -68,10 +68,21 @@ function saveAndApplySettings() {
 function sendSettingsToContentScript(settings) {
   chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
     if (tabs.length > 0) {
-      chrome.tabs.sendMessage(tabs[0].id, {
-        action: "applySettings",
-        settings,
-      });
+      console.log("Sending settings to content script:", settings);
+      chrome.tabs.sendMessage(
+        tabs[0].id,
+        {
+          action: "applySettings",
+          settings,
+        },
+        (response) => {
+          if (chrome.runtime.lastError) {
+            console.error("Error sending message:", chrome.runtime.lastError);
+          } else {
+            console.log("Response from content script:", response);
+          }
+        }
+      );
     } else {
       console.error("No active tab found.");
     }
