@@ -1,64 +1,79 @@
 // popup.js
 
-document.addEventListener("DOMContentLoaded", function () {
-  var recommendedRadios = document.querySelectorAll(
-    'input[name="recommended"]'
+// all section in popup.html
+const sectionsToHandle = [
+  "bilibiliHome",
+  "bilibiliComments",
+  "bilibiliSidebar",
+  "bilibiliUpNext",
+  "bilibiliSubscription",
+  "bilibiliTrending",
+  "bilibiliDanmuku",
+];
+
+// When the popup is opened, load the settings from storage and set up event listeners
+document.addEventListener("DOMContentLoaded", () => {
+  loadSettings();
+  setupEventListeners();
+});
+
+// Load the settings from storage. If no settings are found, use the default settings
+function loadSettings() {
+  chrome.storage.sync.get(["bilibiliSettings"], (result) => {
+    const settings = result.bilibiliSettings || {};
+    sectionsToHandle.forEach((section) => {
+      const selectedOption = settings[section] || "show";
+      setRadioButtonState(section, selectedOption);
+    });
+  });
+}
+
+// Set the radio button state based on the selected option
+function setRadioButtonState(section, selectedOption) {
+  const radioButton = document.querySelector(
+    `input[name="${section}"][value="${selectedOption}"]`
   );
-  var commentsRadios = document.querySelectorAll('input[name="comments"]');
-  var danmakuRadios = document.querySelectorAll('input[name="danmaku"]');
+  if (radioButton) {
+    radioButton.checked = true;
+  }
+}
 
-  // Load the saved settings
-  chrome.storage.sync.get(["settings"], function (result) {
-    var settings = result.settings || {};
-
-    // Set the initial radio button states based on the saved settings
-    var sections = ["recommended", "comments", "danmaku"];
-    sections.forEach(function (section) {
-      var selectedOption = settings[section] || "show";
-      document.querySelector(
-        'input[name="' + section + '"][value="' + selectedOption + '"]'
-      ).checked = true;
+// Set up event listeners for radio buttons to save and apply settings
+function setupEventListeners() {
+  sectionsToHandle.forEach((section) => {
+    const radios = document.querySelectorAll(`input[name="${section}"]`);
+    radios.forEach((radio) => {
+      radio.addEventListener("change", () => saveAndApplySettings());
     });
   });
+}
 
-  // Listen for changes on the radio buttons, save the settings, and send a message to the content script
-  recommendedRadios.forEach(function (radio) {
-    radio.addEventListener("change", function () {
-      saveAndApplySettings();
-    });
+// Save the selected options and apply the settings to the current tab
+function saveAndApplySettings() {
+  const settings = sectionsToHandle.reduce((acc, section) => {
+    const selectedOption = document.querySelector(
+      `input[name="${section}"]:checked`
+    ).value;
+    acc[section] = selectedOption;
+    return acc;
+  }, {});
+
+  chrome.storage.sync.set({ bilibiliSettings: settings }, () => {
+    console.log("Settings saved");
+    sendSettingsToContentScript(settings);
   });
+}
 
-  commentsRadios.forEach(function (radio) {
-    radio.addEventListener("change", function () {
-      saveAndApplySettings();
-    });
-  });
-
-  danmakuRadios.forEach(function (radio) {
-    radio.addEventListener("change", function () {
-      saveAndApplySettings();
-    });
-  });
-
-  function saveAndApplySettings() {
-    var settings = {
-      recommended: document.querySelector('input[name="recommended"]:checked')
-        .value,
-      comments: document.querySelector('input[name="comments"]:checked').value,
-      danmaku: document.querySelector('input[name="danmaku"]:checked').value,
-    };
-
-    // Save the settings
-    chrome.storage.sync.set({ settings: settings }, function () {
-      console.log("Settings saved");
-    });
-
-    // Send a message to the content script to apply the updated settings
-    chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+// Send the settings to the content script to apply the changes
+function sendSettingsToContentScript(settings) {
+  chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+    if (tabs.length > 0) {
       chrome.tabs.sendMessage(tabs[0].id, {
         action: "applySettings",
-        settings: settings,
+        settings,
       });
-    });
-  }
-});
+    } else {
+      console.error("No active tab found.");
+    }
+  });
+}
