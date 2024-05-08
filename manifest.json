@@ -1,6 +1,6 @@
 {
   "name": "ProductivitiBili - Hide BiliBili Feeds 哔哩哔哩自律小助手",
-  "description": "Productivity tools extension that block feeds on BiliBili",
+  "description": "Productivity extension tool that block feeds on BiliBili.",
   "version": "1.0",
   "manifest_version": 3,
   "background": {
