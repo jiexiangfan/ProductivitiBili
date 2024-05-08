@@ -59,7 +59,7 @@ function saveAndApplySettings() {
   }, {});
 
   chrome.storage.sync.set({ bilibiliSettings: settings }, () => {
-    console.log("Settings saved");
+    // console.log("Settings saved");
     sendSettingsToContentScript(settings);
   });
 }

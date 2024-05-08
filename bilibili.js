@@ -55,9 +55,9 @@ chrome.storage.sync.get(["bilibiliSettings"], function (result) {
 });
 
 // Listen for messages from the popup to apply settings
-console.log("Content script loaded, waiting for settings...");
+// console.log("Content script loaded, waiting for settings...");
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
-  console.log("Received message:", request);
+  // console.log("Received message:", request);
   if (request.action === "applySettings") {
     const settings = request.settings;
     applySettings(settings);
@@ -70,7 +70,7 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 function applySettings(settings) {
   let css = "";
   Object.entries(sections).forEach(([section, selectors]) => {
-    console.log("Applying settings for section:", section);
+    // console.log("Applying settings for section:", section);
     const setting = settings[section] || "show"; // Default to 'show' if no setting is provided
     selectors.forEach((selector) => {
       css += generateCSS(selector, setting);
