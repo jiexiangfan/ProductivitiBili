@@ -15,6 +15,9 @@ const sections = {
     ".pop-live-small-mode",
     "#danmukuBox",
     ".video-card-ad-small",
+    ".recommend-list-v1",
+    ".ad-report",
+    ".ad-floor-exp",
   ],
   bilibiliUpNext: [
     ".bpx-player-ending-content",
@@ -27,6 +30,7 @@ const sections = {
     ".international-footer",
     "#activity_vote",
     ".inside-wrp",
+    "#commentapp",
   ],
   bilibiliSubscription: [
     ".bili-dyn-list-tabs",
